@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto p-4">
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <!-- Título -->
+        <div class="bg-blue-600 text-white p-4">
+            <h1 class="text-2xl font-bold">{{ diagnostic.titulo }}</h1>
+        </div>
+
+        <!-- Resumo -->
+        <div class="p-6 border-b">
+            <h2 class="text-xl font-semibold mb-4">Resumo Geral</h2>
+            <ul class="list-disc pl-5 space-y-2">
+                {% for item in diagnostic.resumo %}
+                    <li class="text-gray-700">{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Análise por TV -->
+        <div class="p-6 border-b">
+            <h2 class="text-xl font-semibold mb-4">Análise por TV</h2>
+            
+            <!-- TVs com Quedas -->
+            <div class="mb-6">
+                <h3 class="text-lg font-medium text-red-600 mb-3">TVs com Quedas</h3>
+                <ul class="list-disc pl-5 space-y-2">
+                    {% for item in diagnostic.analise_por_tv.quedas %}
+                        <li class="text-gray-700">{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- TVs Estáveis -->
+            <div class="mb-6">
+                <h3 class="text-lg font-medium text-yellow-600 mb-3">TVs Estáveis</h3>
+                <ul class="list-disc pl-5 space-y-2">
+                    {% for item in diagnostic.analise_por_tv.estaveis %}
+                        <li class="text-gray-700">{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- TVs com Avanços -->
+            <div class="mb-6">
+                <h3 class="text-lg font-medium text-green-600 mb-3">TVs com Avanços</h3>
+                <ul class="list-disc pl-5 space-y-2">
+                    {% for item in diagnostic.analise_por_tv.avancos %}
+                        <li class="text-gray-700">{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- Ações Necessárias -->
+        <div class="p-6 border-b">
+            <h2 class="text-xl font-semibold mb-4">Ações Necessárias</h2>
+            <ul class="list-disc pl-5 space-y-2">
+                {% for item in diagnostic.acoes_necessarias %}
+                    <li class="text-gray-700">{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Conclusões -->
+        <div class="p-6 border-b">
+            <h2 class="text-xl font-semibold mb-4">Conclusões</h2>
+            <ul class="list-disc pl-5 space-y-2">
+                {% for item in diagnostic.conclusoes %}
+                    <li class="text-gray-700">{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Próximos Passos -->
+        <div class="p-6">
+            <h2 class="text-xl font-semibold mb-4">Próximos Passos</h2>
+            <ul class="list-disc pl-5 space-y-2">
+                {% for item in diagnostic.proximos_passos %}
+                    <li class="text-gray-700">{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Botões de Ação -->
+    <div class="mt-6 flex justify-center space-x-4">
+        <a href="{{ url_for('upload') }}" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+            Novo Upload
+        </a>
+        <a href="{{ url_for('logout') }}" class="bg-gray-600 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors">
+            Sair
+        </a>
+    </div>
+</div>
+{% endblock %}
