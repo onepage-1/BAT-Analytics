@@ -19,14 +19,14 @@ Uma aplicação web moderna para análise de dados utilizando Flask e integraç�
 
 1. Clone o repositório:
 ```bash
-git clone [url-do-repositorio]
-cd bat_analytics
+git clone https://github.com/onepage-1/BAT-Analytics.git
+cd BAT-Analytics
 ```
 
 2. Crie um ambiente virtual e ative-o:
 ```bash
 python -m venv venv
-.\venv\Scripts\activate  # Windows
+.\venv\Scripts\activate
 ```
 
 3. Instale as dependências:
@@ -34,11 +34,18 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
+4. Configure as variáveis de ambiente:
+- Crie um arquivo `.env` na raiz do projeto
+- Adicione sua chave da API Deepseek:
+```
+DEEPSEEK_API_KEY=sua_chave_aqui
+```
+
 ## Executando a Aplicação
 
 1. Ative o ambiente virtual (se ainda não estiver ativo):
 ```bash
-.\venv\Scripts\activate  # Windows
+.\venv\Scripts\activate
 ```
 
 2. Execute a aplicação:
